@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Righteous&display=swap');
+
+button {
+  padding: 10px 40px;
+  margin: 10px;
+  font-size: 1em;
+  font-weight: bolder;
+  transition: 0.3s ease-in-out;
+  font-family: "Caveat";
+  background-color: rgb(216, 216, 216);
+  border-radius: 50px;
+}
+
+.home button, .todos button {
+  color: white;
+  border: solid 2px white;
+  background-color: #222;
+  transition: 0.5s ease-in-out;
+  font-family: "Caveat"
+  
+}
+
+.home button:hover, .todos button:hover {
+  color: black;
+  background-color: white;
+  border: solid 2px #222;
+  cursor: pointer;
+}

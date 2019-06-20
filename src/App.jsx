@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import { Home } from './containers/home/home';
-import { Todo } from './containers/todo/todo';
-import { Todos } from './containers/todos/todos';
+import Home from './containers/home/home';
+import ViewTodo from './containers/todo/view-todo';
+import CreateTodo from './containers/todo/create-todo';
+import Todos from './containers/todos/todos';
 
 import './assets/styles/App.css';
 
@@ -14,7 +14,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" component={Home}/>
-          <Route path="/todo/:id" component={Todo}/>
+          <Route path="/createTodo" component={CreateTodo}/>
+          <Route path="/todo/:id" component={ViewTodo}/>
           <Route path="/todos" component={Todos}/>
         </div>
       </Router>
