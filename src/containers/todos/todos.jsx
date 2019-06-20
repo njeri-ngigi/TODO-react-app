@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import TodoCard from '../../components/todo-card';
-import todoData from '../../mock-data/todos';
 import Button from '../../components/button';
+import { fetchAllTodos } from '../../redux/actions/todos';
 
 import '../../assets/styles/todos.css';
 import '../../assets/styles/common.css';
@@ -11,22 +12,23 @@ import '../../assets/styles/common.css';
 
 class Todos extends Component {
   componentDidMount() {
-    // call dispatch to add data to store
+    const { dispatch } = this.props;
+    dispatch(fetchAllTodos())
   }
 
-  todos = () => {
+  todos = (data) => {
     const items = []
-    todoData.map(
-      (todo) => items.push(
-        <Link to="/todo/1" key={todo.title}>
-          <TodoCard todo={todo}/>
-        </Link>
-        )
+    data.map((todo) => items.push(
+      <Link to="/todo/1" key={todo.title}>
+        <TodoCard todo={todo}/>
+      </Link>
       )
+    )
     return items
   }
 
   render() {
+    const { todos } = this.props;
     return (
       <div className="todos main-div">
         <div className="left-div">
@@ -37,11 +39,13 @@ class Todos extends Component {
           </span>
         </div>
         <div className="right-div">
-          {this.todos()}
+          {this.todos(todos)}
         </div>
       </div>
     )
   }
 }
 
-export default Todos;
+const mapStateToProps = ({ todosReducer: { todos }}) => ({todos})
+
+export default connect(mapStateToProps)(Todos);
