@@ -1,7 +1,18 @@
 import types from '../actions/types';
+import todosData from '../../mock-data/todos';
 
 const initialState = {
-  todos: []
+  todos: todosData,
+  title: 'Title',
+  todoType: 'new',
+  placeholder: `
+  Add some text here. E.g.
+
+  - get some milk
+  
+  - call mum
+  
+  - walk the dog`
 }
 
 const todoreducer = (state=initialState, action) => {

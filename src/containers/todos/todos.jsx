@@ -11,10 +11,12 @@ import '../../assets/styles/common.css';
 
 
 class Todos extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchAllTodos())
-  }
+  // componentDidMount() {
+  //   /// 
+
+  //   // const { dispatch } = this.props;
+  //   // dispatch(fetchAllTodos())
+  // }
 
   todos = (data) => {
     const items = []
@@ -29,6 +31,7 @@ class Todos extends Component {
 
   render() {
     const { todos } = this.props;
+    console.log(todos);
     return (
       <div className="todos main-div">
         <div className="left-div">

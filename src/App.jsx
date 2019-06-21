@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './redux/store';
 import Home from './containers/home/home';
 import ViewTodo from './containers/todo/view-todo';
@@ -11,9 +12,11 @@ import './assets/styles/App.css';
 
 class App extends Component {
   render() {
+    const { store, persistor } = configureStore();
     return (
-      <Provider store={configureStore()}>
-        <Router>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <Router>
           <div className="App">
             <Route exact path="/" component={Home}/>
             <Route path="/createTodo" component={CreateTodo}/>
@@ -21,6 +24,8 @@ class App extends Component {
             <Route path="/todos" component={Todos}/>
           </div>
         </Router>
+        </PersistGate>
+        
       </Provider>
     )
   }
