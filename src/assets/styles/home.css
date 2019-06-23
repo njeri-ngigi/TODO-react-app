@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Righteous&display=swap');
+
+h1 {
+ font-family: "Righteous"
+}
+
+h3{
+  font-family: "Dancing Script";
+}
+
+.home {
+  top: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  color: white
+}
+
+.flex-content {
+ margin-top: -7%;
+}
+
+.mb-5 {
+  margin-bottom: 35px;
+}
+
+.mb-10 {
+  margin-bottom: 50px;
+}
