@@ -9,20 +9,26 @@ button {
   font-family: "Caveat";
   background-color: rgb(216, 216, 216);
   border-radius: 50px;
+  outline: none;
 }
 
-.home button, .todos button {
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.home button, .todos button, .view-todo button {
   color: white;
   border: solid 2px white;
   background-color: #222;
   transition: 0.5s ease-in-out;
-  font-family: "Caveat"
-  
 }
 
-.home button:hover, .todos button:hover {
+.home button:hover, .todos button:hover, .view-todo button:hover {
   color: black;
   background-color: white;
   border: solid 2px #222;
-  cursor: pointer;
 }

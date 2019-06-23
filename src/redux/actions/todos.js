@@ -1,19 +1,15 @@
 import types from './types';
-// import todoData from '../../mock-data/todos';
 
-// not used
-
-// export const fetchAllTodos = () => dispatch => {
-//   dispatch({
-//     type: types.FETCH_TODOS,
-//     payload: todoData
-//   })
-// }
-
-export const createNewTodo = (todos) => dispatch => {
-  console.log('Calle me>>>>>>>', todos)
+export const mutateTodosList = (todos) => dispatch => {
   dispatch({
-    type: types.FETCH_TODOS,
+    type: types.MUTATE_TODOS_LIST,
     payload: todos
+  })
+}
+
+export const changeLastLocation = (location) => dispatch => {
+  dispatch({
+    type: types.LAST_LOCATION,
+    payload: location
   })
 }

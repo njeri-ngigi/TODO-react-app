@@ -3,25 +3,19 @@ import todosData from '../../mock-data/todos';
 
 const initialState = {
   todos: todosData,
-  title: 'Title',
-  todoType: 'new',
-  placeholder: `
-  Add some text here. E.g.
-
-  - get some milk
-  
-  - call mum
-  
-  - walk the dog`
+  lastLocation: '/'
 }
 
 const todoreducer = (state=initialState, action) => {
-  const { FETCH_TODOS } = types;
+  const { MUTATE_TODOS_LIST, LAST_LOCATION } = types;
   const { type, payload } = action
 
   switch(type) {
-    case FETCH_TODOS:
+    case MUTATE_TODOS_LIST:
       return { ...state, todos: payload }
+
+    case LAST_LOCATION:
+      return { ...state, lastLocation: payload }
 
     default:
       return state

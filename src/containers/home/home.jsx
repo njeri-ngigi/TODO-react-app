@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Button from '../../components/button';
+import { changeLastLocation } from '../../redux/actions/todos';
 
 import '../../assets/styles/home.css'
 
 class Home extends Component {
+
+  componentDidMount() {
+    const { dispatch, location: {pathname} } = this.props;
+    dispatch(changeLastLocation(pathname));
+  }
+
   render() {
     return (
       <div className="home">
@@ -20,4 +28,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect()(Home);

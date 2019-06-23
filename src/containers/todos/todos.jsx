@@ -4,34 +4,30 @@ import { connect } from 'react-redux';
 
 import TodoCard from '../../components/todo-card';
 import Button from '../../components/button';
-import { fetchAllTodos } from '../../redux/actions/todos';
+import { changeLastLocation } from '../../redux/actions/todos';
 
 import '../../assets/styles/todos.css';
 import '../../assets/styles/common.css';
 
 
 class Todos extends Component {
-  // componentDidMount() {
-  //   /// 
-
-  //   // const { dispatch } = this.props;
-  //   // dispatch(fetchAllTodos())
-  // }
+  componentDidMount() {
+    const { dispatch, location: {pathname} } = this.props;
+    dispatch(changeLastLocation(pathname));
+  }
 
   todos = (data) => {
     const items = []
-    data.map((todo) => items.push(
-      <Link to="/todo/1" key={todo.title}>
+    data.map((todo, index) => items.push(
+      <Link to={`/todo/${index}`} key={index}>
         <TodoCard todo={todo}/>
       </Link>
-      )
-    )
+      ))
     return items
   }
 
   render() {
     const { todos } = this.props;
-    console.log(todos);
     return (
       <div className="todos main-div">
         <div className="left-div">

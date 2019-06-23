@@ -1,0 +1,43 @@
+.view-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.view-todo-left, .view-todo-right {
+  width: 50%;
+}
+
+.view-todo-left {
+  text-align: justify;
+  padding: 5%;
+  background-color: #222;
+  color: white;
+  padding-top: 30%;
+  height: 100%;
+}
+
+.view-todo-right button {
+  width: 150px;
+  font-size: 1.1em;
+}
+
+.view-todo-left p {
+  margin-top: 30px;
+  line-height: 1.2em;
+  white-space: pre-line;
+}
+
+.view-todo-left button{
+  margin-top: 10%;
+}
+
+.view-todo-right-button {
+  position: fixed;
+  width: 25%;
+  margin-left: -10%;
+}
