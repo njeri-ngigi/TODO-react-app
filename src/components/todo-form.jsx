@@ -54,6 +54,8 @@ class TodoForm extends Component {
   render() {
     const { title, placeholder } = this.state;
     const { todoAction, lastLocation } = this.props;
+    const titleValue = todoAction === 'edit' ? { value: title } : null;
+    const textAreaValue = todoAction === 'edit' ? { value: placeholder } : null;
     return (
       <div className="main-div">
         <div className="left-div">
@@ -67,13 +69,13 @@ class TodoForm extends Component {
               required
               name="title"
               placeholder={title}
-              value={todoAction === 'edit' ? title : ""}
+              { ...titleValue }
               onChange={this.handleChange}/>
             <textarea
               required
               name="placeholder"
               placeholder={placeholder}
-              value={todoAction === 'edit' ? placeholder : ""}
+              { ...textAreaValue }
               onChange={this.handleChange}/>
             <span>
               <Link to={lastLocation}><button>Cancel</button></Link>
